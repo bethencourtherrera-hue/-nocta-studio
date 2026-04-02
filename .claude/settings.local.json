@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/bethe/desarrollo-web/.claude/skills/ui-ux-pro-max/**)",
+      "Bash(python scripts/search.py \"freelance portfolio web design studio dark elegant premium\" --design-system -p \"Nocta Studio\")",
+      "Bash(python3 scripts/search.py \"freelance portfolio web design studio dark elegant premium\" --design-system -p \"Nocta Studio\")",
+      "Bash(where python:*)",
+      "Bash(where py:*)",
+      "Bash(py --version)",
+      "Bash(start:*)"
+    ]
+  }
+}
