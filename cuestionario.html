@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nocta Studio · Cuestionario para Clientes</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap');
+  :root {
+    --bg: #0a0a0a;
+    --card: #141414;
+    --card-hover: #1a1a2e;
+    --accent: #4f6df5;
+    --gold: #D4A017;
+    --text: #ffffff;
+    --text-dim: #888;
+    --text-mid: #bbb;
+    --border: #2a2a2a;
+    --input-bg: #0e0e0e;
+    --success: #27ae60;
+    --error: #e74c3c;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* HEADER */
+  .hero {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #2C3E50 100%);
+    padding: 50px 24px 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; letter-spacing: 3px; }
+  .hero h1 span { color: var(--gold); }
+  .hero p { color: var(--text-dim); font-size: 0.95rem; margin-top: 10px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+  .hero .badge { display: inline-block; background: rgba(79,109,245,0.15); color: var(--accent); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-top: 16px; border: 1px solid rgba(79,109,245,0.3); }
+
+  /* PROGRESS */
+  .progress-bar { max-width: 700px; margin: 0 auto; padding: 20px 24px 0; }
+  .progress-track { height: 4px; background: var(--border); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--gold)); border-radius: 4px; transition: width 0.4s ease; width: 0%; }
+  .progress-text { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-dim); margin-top: 8px; }
+
+  /* FORM */
+  .form-container { max-width: 700px; margin: 0 auto; padding: 24px; }
+
+  .form-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+  }
+  .form-section:hover { border-color: rgba(79,109,245,0.3); }
+  .form-section.active { border-color: var(--accent); }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    background: var(--accent);
+    color: white;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+  .section-header h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; }
+  .section-header p { font-size: 0.82rem; color: var(--text-dim); margin-top: 2px; }
+
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-mid);
+    margin-bottom: 8px;
+  }
+  .field label .required { color: var(--accent); }
+
+  .field input, .field textarea, .field select {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(79,109,245,0.15);
+  }
+  .field textarea { min-height: 90px; resize: vertical; }
+  .field input::placeholder, .field textarea::placeholder { color: #555; }
+
+  .field select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+  .field select option { background: var(--card); color: var(--text); }
+
+  .radio-group { display: flex; gap: 10px; flex-wrap: wrap; }
+  .radio-option {
+    padding: 10px 18px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+  }
+  .radio-option:hover { border-color: var(--accent); }
+  .radio-option.selected { background: rgba(79,109,245,0.15); border-color: var(--accent); color: var(--accent); font-weight: 700; }
+  .radio-option input { display: none; }
+
+  /* SUBMIT */
+  .submit-section { text-align: center; padding: 20px 0 40px; }
+  .submit-btn {
+    background: linear-gradient(135deg, var(--accent), #3a5bd9);
+    color: white;
+    padding: 16px 48px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(79,109,245,0.3); }
+  .submit-btn:active { transform: translateY(0); }
+  .submit-note { color: var(--text-dim); font-size: 0.78rem; margin-top: 12px; }
+
+  /* SUCCESS */
+  .success-msg {
+    display: none;
+    background: var(--card);
+    border: 2px solid var(--success);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    max-width: 500px;
+    margin: 40px auto;
+  }
+  .success-msg h2 { color: var(--success); font-family: 'Playfair Display', serif; margin-bottom: 12px; }
+  .success-msg p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.6; }
+
+  footer { text-align: center; padding: 30px; color: #444; font-size: 0.78rem; border-top: 1px solid var(--border); }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  @media(max-width:600px) {
+    .hero h1 { font-size: 1.6rem; }
+    .form-section { padding: 20px; }
+    .radio-group { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>🌙 NOCTA <span>STUDIO</span></h1>
+  <p>Cuéntanos sobre tu negocio para que podamos crear la web perfecta para ti. Tómate tu tiempo — cada detalle nos ayuda a hacer un mejor trabajo.</p>
+  <div class="badge">📋 Cuestionario de nuevo cliente</div>
+</div>
+
+<div class="progress-bar">
+  <div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+  <div class="progress-text"><span id="progress-label">0% completado</span><span>6 secciones</span></div>
+</div>
+
+<form class="form-container" id="clientForm" action="https://formsubmit.co/contactonocta.studio@gmail.com" method="POST">
+  <!-- FormSubmit config -->
+  <input type="hidden" name="_subject" value="🌙 Nuevo cuestionario de cliente - Nocta Studio">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="box">
+  <input type="hidden" name="_next" value="">
+  <input type="text" name="_honey" style="display:none">
+
+  <!-- SECCION 1 -->
+  <div class="form-section" id="sec1">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div><h2>Sobre tu negocio</h2><p>Queremos entender qué haces y qué te hace especial</p></div>
+    </div>
+
+    <div class="field">
+      <label>Nombre del negocio <span class="required">*</span></label>
+      <input type="text" name="negocio" placeholder="Ej: Peluquería María, Taller López..." required>
+    </div>
+    <div class="field">
+      <label>¿A qué se dedica exactamente tu negocio? <span class="required">*</span></label>
+      <textarea name="descripcion" placeholder="Cuéntanoslo con tus palabras..." required></textarea>
+    </div>
+    <div class="field">
+      <label>¿Qué os hace diferentes de la competencia?</label>
+      <textarea name="diferencial" placeholder="¿Por qué un cliente os elige a vosotros?"></textarea>
+    </div>
+    <div class="field">
+      <label>¿Cuál es vuestro producto o servicio estrella?</label>
+      <input type="text" name="estrella" placeholder="Ej: Corte + peinado, Reparación de frenos...">
+    </div>
+    <div class="field">
+      <label>¿Tenéis algún lema o frase que soléis usar?</label>
+      <input type="text" name="lema" placeholder="Ej: 'Tu pelo, nuestra pasión'">
+    </div>
+    <div class="field">
+      <label>¿Cuánto tiempo lleváis abiertos?</label>
+      <input type="text" name="antiguedad" placeholder="Ej: 5 años, desde 2019...">
+    </div>
+  </div>
+
+  <!-- SECCION 2 -->
+  <div class="form-section" id="sec2">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div><h2>Sobre tus clientes</h2><p>Conocer a tu cliente nos ayuda a diseñar la web para él</p></div>
+    </div>
+
+    <div class="field">
+      <label>¿Quién es vuestro cliente típico?</label>
+      <textarea name="cliente_tipico" placeholder="Edad, perfil, si son locales o turistas, hombres o mujeres..."></textarea>
+    </div>
+    <div class="field">
+      <label>¿Cómo os encuentran los clientes ahora?</label>
+      <div class="radio-group" data-name="captacion">
+        <label class="radio-option" onclick="this.classList.toggle('selected')"><input type="checkbox" name="captacion_boca" value="Boca a boca">🗣️ Boca a boca</label>
+        <label class="radio-option" onclick="this.classList.toggle('selected')"><input type="checkbox" name="captacion_instagram" value="Instagram">📸 Instagram</label>
+        <label class="radio-option" onclick="this.classList.toggle('selected')"><input type="checkbox" name="captacion_google" value="Google">🔍 Google</label>
+        <label class="radio-option" onclick="this.classList.toggle('selected')"><input type="checkbox" name="captacion_puerta" value="Pasan por la puerta">🚶 Pasan por la puerta</label>
+      </div>
+    </div>
+    <div class="field">
+      <label>¿Qué es lo primero que os pregunta un cliente nuevo?</label>
+      <input type="text" name="pregunta_frecuente" placeholder="Ej: ¿Cuánto cuesta? ¿Tenéis cita libre?">
+    </div>
+    <div class="field">
+      <label>¿Qué quejas o dudas suelen tener los clientes?</label>
+      <textarea name="quejas" placeholder="Esto nos ayuda a responderlas directamente en la web"></textarea>
+    </div>
+  </div>
+
+  <!-- SECCION 3 -->
+  <div class="form-section" id="sec3">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div><h2>Sobre la web</h2><p>Para saber exactamente qué necesitas</p></div>
+    </div>
+
+    <div class="field">
+      <label>¿Tenéis web actualmente?</label>
+      <div class="radio-group">
+        <label class="radio-option" onclick="selectRadio(this,'web_actual')"><input type="radio" name="web_actual" value="No, no tenemos">❌ No tenemos</label>
+        <label class="radio-option" onclick="selectRadio(this,'web_actual')"><input type="radio" name="web_actual" value="Sí, pero es mala">⚠️ Sí, pero es mala</label>
+        <label class="radio-option" onclick="selectRadio(this,'web_actual')"><input type="radio" name="web_actual" value="Sí, pero queremos mejorarla">🔄 Sí, queremos mejorarla</label>
+      </div>
+    </div>
+    <div class="field">
+      <label>¿Qué quieres que haga alguien cuando entre en la web?</label>
+      <div class="radio-group">
+        <label class="radio-option" onclick="this.classList.toggle('selected')"><input type="checkbox" name="objetivo_llamar" value="Llamar">📞 Llamar</label>
+        <label class="radio-option" onclick="this.classList.toggle('selected')"><input type="checkbox" name="objetivo_tienda" value="Ir a la tienda">🏪 Ir a la tienda</label>
+        <label class="radio-option" onclick="this.classList.toggle('selected')"><input type="checkbox" name="objetivo_whatsapp" value="WhatsApp">💬 WhatsApp</label>
+        <label class="radio-option" onclick="this.classList.toggle('selected')"><input type="checkbox" name="objetivo_reservar" value="Reservar">📅 Reservar</label>
+        <label class="radio-option" onclick="this.classList.toggle('selected')"><input type="checkbox" name="objetivo_comprar" value="Comprar">🛒 Comprar</label>
+      </div>
+    </div>
+    <div class="field">
+      <label>¿Hay algo que queráis que la web tenga sí o sí?</label>
+      <textarea name="requisitos" placeholder="Ej: Mapa, fotos, precios, formulario de contacto, botón de WhatsApp..."></textarea>
+    </div>
+  </div>
+
+  <!-- SECCION 4 -->
+  <div class="form-section" id="sec4">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div><h2>Contenido que necesitamos</h2><p>Material para construir la web. Puedes enviarlo después por WhatsApp</p></div>
+    </div>
+
+    <div class="field">
+      <label>¿Tenéis fotos profesionales del negocio o productos?</label>
+      <div class="radio-group">
+        <label class="radio-option" onclick="selectRadio(this,'fotos')"><input type="radio" name="fotos" value="Sí, tenemos fotos">📸 Sí, tenemos</label>
+        <label class="radio-option" onclick="selectRadio(this,'fotos')"><input type="radio" name="fotos" value="No, pero podemos hacer">📱 No, pero podemos hacer</label>
+        <label class="radio-option" onclick="selectRadio(this,'fotos')"><input type="radio" name="fotos" value="No tenemos">❌ No tenemos</label>
+      </div>
+    </div>
+    <div class="field">
+      <label>¿Tenéis logo?</label>
+      <div class="radio-group">
+        <label class="radio-option" onclick="selectRadio(this,'logo')"><input type="radio" name="logo" value="Sí">✅ Sí</label>
+        <label class="radio-option" onclick="selectRadio(this,'logo')"><input type="radio" name="logo" value="No">❌ No</label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Lista de servicios o productos con precios</label>
+      <textarea name="servicios" placeholder="Puedes poner una lista aquí o decirnos que nos lo enviarás después"></textarea>
+    </div>
+    <div class="field">
+      <label>Horarios de apertura <span class="required">*</span></label>
+      <textarea name="horarios" placeholder="Ej: L-V: 10:00-20:00, S: 10:00-14:00" required></textarea>
+    </div>
+    <div class="field">
+      <label>Dirección exacta <span class="required">*</span></label>
+      <input type="text" name="direccion" placeholder="Calle, número, código postal, ciudad" required>
+    </div>
+    <div class="field">
+      <label>Teléfono de contacto <span class="required">*</span></label>
+      <input type="tel" name="telefono" placeholder="Ej: 612 345 678" required>
+    </div>
+    <div class="field">
+      <label>WhatsApp (si es diferente al teléfono)</label>
+      <input type="tel" name="whatsapp" placeholder="Ej: 612 345 678">
+    </div>
+    <div class="field">
+      <label>Redes sociales</label>
+      <input type="text" name="redes" placeholder="Ej: @minegocio en Instagram, Facebook...">
+    </div>
+  </div>
+
+  <!-- SECCION 5 -->
+  <div class="form-section" id="sec5">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div><h2>Imagen y estilo</h2><p>Para que el diseño sea exactamente lo que esperas</p></div>
+    </div>
+
+    <div class="field">
+      <label>¿Hay alguna web que os guste y queráis algo parecido?</label>
+      <input type="text" name="referencia_web" placeholder="Pega aquí el enlace si tienes alguno">
+    </div>
+    <div class="field">
+      <label>¿Qué estilo preferís?</label>
+      <div class="radio-group">
+        <label class="radio-option" onclick="selectRadio(this,'estilo')"><input type="radio" name="estilo" value="Clásico y elegante">🏛️ Clásico y elegante</label>
+        <label class="radio-option" onclick="selectRadio(this,'estilo')"><input type="radio" name="estilo" value="Moderno y atrevido">🚀 Moderno y atrevido</label>
+        <label class="radio-option" onclick="selectRadio(this,'estilo')"><input type="radio" name="estilo" value="Cálido y cercano">🤝 Cálido y cercano</label>
+        <label class="radio-option" onclick="selectRadio(this,'estilo')"><input type="radio" name="estilo" value="No estoy seguro">🤔 No estoy seguro</label>
+      </div>
+    </div>
+    <div class="field">
+      <label>¿Cuáles son los colores de vuestra marca?</label>
+      <input type="text" name="colores" placeholder="Ej: Azul y blanco, rojo oscuro...">
+    </div>
+    <div class="field">
+      <label>¿Hay algún color que NO queráis en la web?</label>
+      <input type="text" name="colores_no" placeholder="Ej: Nada de rosa, nada de amarillo...">
+    </div>
+  </div>
+
+  <!-- SECCION 6 -->
+  <div class="form-section" id="sec6">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div><h2>Logística</h2><p>Para organizar el proyecto</p></div>
+    </div>
+
+    <div class="field">
+      <label>¿Para cuándo lo necesitáis?</label>
+      <div class="radio-group">
+        <label class="radio-option" onclick="selectRadio(this,'urgencia')"><input type="radio" name="urgencia" value="Lo antes posible">⚡ Lo antes posible</label>
+        <label class="radio-option" onclick="selectRadio(this,'urgencia')"><input type="radio" name="urgencia" value="En 1-2 semanas">📅 En 1-2 semanas</label>
+        <label class="radio-option" onclick="selectRadio(this,'urgencia')"><input type="radio" name="urgencia" value="Sin prisa">🧘 Sin prisa</label>
+      </div>
+    </div>
+    <div class="field">
+      <label>¿Tenéis dominio propio? (ejemplo: vuestronegocio.es)</label>
+      <div class="radio-group">
+        <label class="radio-option" onclick="selectRadio(this,'dominio')"><input type="radio" name="dominio" value="Sí">✅ Sí</label>
+        <label class="radio-option" onclick="selectRadio(this,'dominio')"><input type="radio" name="dominio" value="No">❌ No</label>
+        <label class="radio-option" onclick="selectRadio(this,'dominio')"><input type="radio" name="dominio" value="No sé qué es">❓ No sé qué es</label>
+      </div>
+    </div>
+    <div class="field">
+      <label>Nombre de la persona de contacto <span class="required">*</span></label>
+      <input type="text" name="contacto_nombre" placeholder="¿Con quién hablamos?" required>
+    </div>
+    <div class="field">
+      <label>Email de contacto <span class="required">*</span></label>
+      <input type="email" name="contacto_email" placeholder="Para enviaros los avances" required>
+    </div>
+    <div class="field">
+      <label>¿Algo más que quieras contarnos?</label>
+      <textarea name="comentarios" placeholder="Lo que sea — todo nos ayuda a hacer un mejor trabajo"></textarea>
+    </div>
+  </div>
+
+  <div class="submit-section">
+    <button type="submit" class="submit-btn">Enviar cuestionario 🚀</button>
+    <p class="submit-note">Te contactaremos en menos de 24h con una propuesta personalizada</p>
+  </div>
+</form>
+
+<div class="success-msg" id="successMsg">
+  <h2>✅ ¡Cuestionario enviado!</h2>
+  <p>Hemos recibido toda la información. Nos pondremos en contacto contigo en menos de 24 horas con una propuesta personalizada para tu negocio.</p>
+  <p style="margin-top:16px;"><strong>Nocta Studio</strong> · 695 248 495</p>
+</div>
+
+<footer>
+  <strong>Nocta Studio</strong> · <a href="https://nocta-studio.vercel.app" target="_blank">nocta-studio.vercel.app</a> · 695 248 495<br>
+  Diseño web que transforma negocios · Alcalá de Henares, Madrid
+</footer>
+
+<script>
+function selectRadio(el, name) {
+  el.closest('.radio-group').querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  el.querySelector('input').checked = true;
+  updateProgress();
+}
+
+function updateProgress() {
+  const form = document.getElementById('clientForm');
+  const fields = form.querySelectorAll('input[required], textarea[required]');
+  let filled = 0;
+  fields.forEach(f => { if (f.value.trim()) filled++; });
+  const pct = Math.round((filled / fields.length) * 100);
+  document.getElementById('progress').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = pct + '% completado';
+}
+
+document.querySelectorAll('input, textarea, select').forEach(el => {
+  el.addEventListener('input', updateProgress);
+});
+
+// Focus effects
+document.querySelectorAll('.form-section').forEach(sec => {
+  sec.querySelectorAll('input, textarea').forEach(el => {
+    el.addEventListener('focus', () => sec.classList.add('active'));
+    el.addEventListener('blur', () => sec.classList.remove('active'));
+  });
+});
+
+// Handle success after FormSubmit redirect
+if (window.location.search.includes('submitted=true')) {
+  document.getElementById('clientForm').style.display = 'none';
+  document.querySelector('.progress-bar').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+}
+</script>
+</body>
+</html>
