@@ -260,9 +260,9 @@ nav.scrolled{background:rgba(8,8,8,.94);backdrop-filter:blur(24px);-webkit-backd
 .faq-list{margin-top:48px;max-width:740px}
 .faq-item{border-bottom:1px solid var(--line)}
 .faq-item:first-child{border-top:1px solid var(--line)}
-.faq-q{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:22px 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.faq-q h3{font-size:.98rem;font-weight:500;line-height:1.55;transition:color .3s}
-.faq-item.open .faq-q h3{color:var(--accent)}
+.faq-q{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:22px 0;cursor:pointer;-webkit-tap-highlight-color:transparent;width:100%;background:none;border:none;text-align:left;font-family:var(--f-body);font-size:.98rem;font-weight:500;line-height:1.55;color:var(--white);transition:color .3s}
+.faq-q:focus-visible{outline:1.5px solid var(--accent);outline-offset:3px;border-radius:4px}
+.faq-item.open .faq-q{color:var(--accent)}
 .faq-tog{width:30px;height:30px;border:1px solid var(--line2);border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .4s;position:relative}
 .faq-tog::before,.faq-tog::after{content:'';position:absolute;background:var(--off);transition:all .4s}
 .faq-tog::before{width:10px;height:1px}
@@ -653,28 +653,28 @@ footer{border-top:1px solid var(--line);padding:56px 24px 36px;z-index:1;positio
     <h2 class="sec-h">LO QUE<br><span class="ac">PREGUNTAN</span></h2>
   </div>
   <div class="faq-list">
-    <div class="faq-item rv" onclick="this.classList.toggle('open')">
-      <div class="faq-q"><h3>¿Cuánto tarda en estar lista mi web?</h3><div class="faq-tog"></div></div>
+    <div class="faq-item rv">
+      <h3><button class="faq-q" aria-expanded="false">¿Cuánto tarda en estar lista mi web?<span class="faq-tog"></span></button></h3>
       <div class="faq-a"><p>Depende del proyecto. Web básica: 5 días. Web profesional: 7 días. Web con animaciones y diseño avanzado: 10 días. Los plazos empiezan desde que me envías el material (fotos, textos, logo). Todo en días laborables.</p></div>
     </div>
-    <div class="faq-item rv" onclick="this.classList.toggle('open')">
-      <div class="faq-q"><h3>¿Y si no tengo fotos ni textos preparados?</h3><div class="faq-tog"></div></div>
+    <div class="faq-item rv">
+      <h3><button class="faq-q" aria-expanded="false">¿Y si no tengo fotos ni textos preparados?<span class="faq-tog"></span></button></h3>
       <div class="faq-a"><p>No pasa nada. Te ayudo a prepararlos. Puedo hacer una sesión de fotos rápida con móvil profesional por 50€ extra, y los textos los escribo yo basándome en lo que me cuentes sobre tu negocio.</p></div>
     </div>
-    <div class="faq-item rv" onclick="this.classList.toggle('open')">
-      <div class="faq-q"><h3>¿Cómo se paga?</h3><div class="faq-tog"></div></div>
+    <div class="faq-item rv">
+      <h3><button class="faq-q" aria-expanded="false">¿Cómo se paga?<span class="faq-tog"></span></button></h3>
       <div class="faq-a"><p>50% al aceptar el presupuesto para empezar, y el otro 50% a la entrega. Acepto Bizum, transferencia o efectivo. Sin sorpresas, sin cuotas ocultas, sin letra pequeña.</p></div>
     </div>
-    <div class="faq-item rv" onclick="this.classList.toggle('open')">
-      <div class="faq-q"><h3>¿Qué pasa después de entregar la web?</h3><div class="faq-tog"></div></div>
+    <div class="faq-item rv">
+      <h3><button class="faq-q" aria-expanded="false">¿Qué pasa después de entregar la web?<span class="faq-tog"></span></button></h3>
       <div class="faq-a"><p>La web es tuya. El código, el diseño, el dominio — todo. Si quieres que me encargue de los cambios y actualizaciones, ofrezco mantenimiento mensual desde 40€/mes. Si prefieres llevarla tú, adelante.</p></div>
     </div>
-    <div class="faq-item rv" onclick="this.classList.toggle('open')">
-      <div class="faq-q"><h3>¿Puedo ver cómo quedaría mi web antes de contratar?</h3><div class="faq-tog"></div></div>
+    <div class="faq-item rv">
+      <h3><button class="faq-q" aria-expanded="false">¿Puedo ver cómo quedaría mi web antes de contratar?<span class="faq-tog"></span></button></h3>
       <div class="faq-a"><p>Claro. Si me dices a qué se dedica tu negocio, te hago un boceto rápido — totalmente gratis y sin compromiso. Así ves la calidad con algo concreto delante antes de decidir nada.</p></div>
     </div>
-    <div class="faq-item rv" onclick="this.classList.toggle('open')">
-      <div class="faq-q"><h3>¿Dónde trabajas? ¿Solo en Alcalá?</h3><div class="faq-tog"></div></div>
+    <div class="faq-item rv">
+      <h3><button class="faq-q" aria-expanded="false">¿Dónde trabajas? ¿Solo en Alcalá?<span class="faq-tog"></span></button></h3>
       <div class="faq-a"><p>Trabajo en remoto con clientes de cualquier parte de España. El proceso es 100% online (WhatsApp, email, videollamada). Si estás cerca de Alcalá de Henares y prefieres quedar en persona, también podemos.</p></div>
     </div>
   </div>
@@ -782,6 +782,15 @@ mobMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   mobMenu.classList.remove('open');
   document.body.style.overflow = '';
 }));
+
+// ── FAQ ──
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const open = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  });
+});
 
 // ── REVEAL ON SCROLL ──
 const obs = new IntersectionObserver((entries) => {
