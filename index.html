@@ -373,6 +373,12 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
 .ck-ok:hover{background:var(--oliva);color:var(--crema)}
 .ck-no{background:transparent;color:var(--oliva);padding:10px 20px;border-radius:100px;font-size:.85rem;font-weight:600;border:1px solid var(--line2);cursor:pointer;transition:all .3s}
 .ck-no:hover{border-color:var(--oliva)}
+.proc-line{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;margin-top:40px;padding-top:28px;border-top:1px solid var(--line2)}
+.proc-line li{font-family:var(--f-body);font-size:.95rem;color:var(--texto-suave);line-height:1.4}
+.proc-line b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.5rem;color:var(--ocre-oscuro);font-style:italic}
+.port-tst{margin-top:8px}
+.hero-sub{display:inline-block;margin-top:14px;font-size:.9rem;color:var(--texto-suave);text-decoration:underline;text-underline-offset:3px}
+@media(min-width:768px){.proc-line{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
@@ -395,9 +401,8 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
     <span class="nav-name">NOCTA <em>STUDIO</em></span>
   </a>
   <div class="nav-links">
-    <a href="#servicios">Servicios</a>
+    <a href="#portfolio">Proyectos</a>
     <a href="#precios">Precios</a>
-    <a href="#portfolio">Portfolio</a>
     <a href="#quien-soy">Quién soy</a>
     <a href="https://wa.me/34695248495?text=Hola%2C%20quiero%20una%20web%20para%20mi%20negocio" target="_blank" rel="noopener" class="nav-cta-link">Escríbeme</a>
   </div>
@@ -409,11 +414,9 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
 <!-- ── MOBILE MENU ── -->
 <div class="mob-menu" id="mobMenu">
   <div class="mob-menu-links">
-    <a href="#servicios">Servicios</a>
+    <a href="#portfolio">Proyectos</a>
     <a href="#precios">Precios</a>
-    <a href="#portfolio">Portfolio</a>
     <a href="#quien-soy">Quién soy</a>
-    <a href="#proceso">Proceso</a>
     <a href="/cuestionario.html">Cuestionario</a>
   </div>
   <div class="mob-menu-foot">
@@ -421,6 +424,7 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
     <a href="mailto:contactonocta.studio@gmail.com">contactonocta.studio@gmail.com</a>
   </div>
 </div>
+
 
 <!-- ── HERO ── -->
 <section class="hero">
@@ -441,12 +445,11 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
     <div class="hero-foot">
       <div>
         <p class="hero-tagline">
-          <strong>Soy Diego, de La Palma, y voy en persona a tu negocio.</strong><br>
-          Sin plantillas, con boceto gratis y entregada en 7 días.
+          <strong>Te enseño cómo quedaría tu web antes de que pagues nada.</strong><br>
+          Soy Diego, de La Palma, y voy en persona a tu negocio. Sin plantillas, lista en 7 días.
         </p>
         <div class="hero-ctas">
-          <a href="https://wa.me/34695248495?text=Hola%2C%20quiero%20una%20web%20para%20mi%20negocio" target="_blank" rel="noopener" class="btn-p">Escríbeme por WhatsApp <span class="ar">→</span></a>
-          <a href="/cuestionario.html" class="btn-g">Rellenar cuestionario</a>
+          <a href="https://wa.me/34695248495?text=Hola%2C%20quiero%20ver%20un%20boceto%20gratis%20de%20mi%20web" target="_blank" rel="noopener" class="btn-p">Pídeme tu boceto gratis <span class="ar">→</span></a>
         </div>
       </div>
       <div class="hero-stats">
@@ -458,55 +461,133 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
   </div>
 </section>
 
-<!-- ── FRANJA ── -->
-<div class="strip">
-  <p><span>Web a medida</span> <span class="sep">·</span> <span>desde 175 €</span> <span class="sep">·</span> <span>lista en 7 días</span> <span class="sep">·</span> <span>sin permanencia</span></p>
+<!-- ── PORTFOLIO ── -->
+<div class="port-wrap" id="portfolio">
+  <div class="port-inner">
+    <div class="rv">
+      <div class="sec-label"><span class="ln">01</span><span class="bar"></span><span>Proyectos</span></div>
+      <h2 class="sec-h">Webs que ya<br><span class="ac">trabajan</span></h2>
+      <p class="sec-p">Negocios reales de La Palma que hoy reciben clientes por su web.</p>
+    </div>
+    <div class="port-grid clients">
+
+      <a href="https://www.zonavital.es/" target="_blank" rel="noopener" class="port-card real rv-s">
+        <div class="port-top-bar"></div>
+        <div class="port-body">
+          <div class="port-preview">
+            <img class="port-img" src="img/zonavital.jpg" width="1280" height="720" loading="lazy" alt="Web de Zonavital, ortopedia en Breña Alta, La Palma: catálogo de productos y pedido por WhatsApp">
+          </div>
+          <div class="port-name">Zonavital</div>
+          <div class="port-meta"><span class="port-sector">Ortopedia · <span class="port-badge client">Cliente</span></span><span class="port-link">Ver web ↗</span></div>
+        </div>
+      </a>
+
+      <a href="https://www.mirflores.com/" target="_blank" rel="noopener" class="port-card real rv-s">
+        <div class="port-top-bar"></div>
+        <div class="port-body">
+          <div class="port-preview">
+            <img class="port-img" src="img/mir.jpg" width="1280" height="720" loading="lazy" alt="Web de MirFlores Atelier, floristería en La Palma: ramos, bodas, eventos y talleres">
+          </div>
+          <div class="port-name">Mir Floristería</div>
+          <div class="port-meta"><span class="port-sector">Floristería · <span class="port-badge client">Cliente</span></span><span class="port-link">Ver web ↗</span></div>
+        </div>
+      </a>
+
+    </div>
+    <div class="tst-grid two port-tst">
+      <!-- Texto en mi voz (no son citas de los clientes). Cuando tengas una frase real de cada uno, cámbiala aquí con su permiso. -->
+      <figure class="tst-card rv">
+        <blockquote>Llevo tiempo trabajando con Zonavital, en confianza y con trato cercano. Están contentos con el resultado y seguimos mejorando la web juntos.</blockquote>
+        <figcaption><strong>Zonavital</strong>Ortopedia · Breña Alta, La Palma</figcaption>
+      </figure>
+      <figure class="tst-card rv">
+        <blockquote>Con Mir Floristería también trabajo desde hace tiempo, mano a mano y sin intermediarios. Están felices con la web que hemos hecho juntos.</blockquote>
+        <figcaption><strong>Mir Floristería</strong>Floristería · La Palma</figcaption>
+      </figure>
+    </div>
+    <h3 class="port-group demo">Más ejemplos</h3>
+    <div class="port-grid demos">
+
+      <a href="https://restaurante-braseria.vercel.app" target="_blank" rel="noopener" class="port-card rv-s">
+        <div class="port-top-bar"></div>
+        <div class="port-body">
+          <div class="port-preview">
+            <img class="port-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=72" loading="lazy" alt="Carne a la brasa en asador">
+            <div class="port-overlay"></div>
+            <div class="port-prev-inner">
+              <div class="pv-brand">La Brasería</div>
+              <div class="pv-line"></div>
+              <div class="pv-sub">Asador · a la brasa</div>
+            </div>
+          </div>
+          <div class="port-name">La Brasería</div>
+          <div class="port-meta"><span class="port-sector">Restaurante</span><span class="port-badge">Demo</span><span class="port-link">Ver ↗</span></div>
+        </div>
+      </a>
+      <a href="https://tattoo-tinta-y-alma.vercel.app" target="_blank" rel="noopener" class="port-card rv-s">
+        <div class="port-top-bar"></div>
+        <div class="port-body">
+          <div class="port-preview">
+            <img class="port-img" src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=600&q=72" loading="lazy" alt="Tatuaje artístico en espalda">
+            <div class="port-overlay"></div>
+            <div class="port-prev-inner">
+              <div class="pv-brand">Tinta & Alma</div>
+              <div class="pv-line"></div>
+              <div class="pv-sub">Tattoo Studio</div>
+            </div>
+          </div>
+          <div class="port-name">Tinta & Alma</div>
+          <div class="port-meta"><span class="port-sector">Tattoo</span><span class="port-badge">Demo</span><span class="port-link">Ver ↗</span></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
 </div>
 
-<!-- ── SERVICIOS ── -->
-<section class="sec" id="servicios">
+<!-- ── POR QUÉ NOCTA ── -->
+<section class="sec" id="por-que">
   <div class="rv">
-    <div class="sec-label"><span class="ln">01</span><span class="bar"></span><span>Qué hago</span></div>
-    <h2 class="sec-h">Webs que<br><span class="ac">venden</span></h2>
-    <p class="sec-p">Webs pensadas para que tus clientes te encuentren y te escriban.</p>
+    <div class="sec-label"><span class="ln">02</span><span class="bar"></span><span>Por qué Nocta</span></div>
+    <h2 class="sec-h">Por qué<br><span class="ac">Nocta</span></h2>
+    <p class="sec-p">Lo que tienes al trabajar conmigo.</p>
   </div>
-  <div class="svc-grid">
-    <div class="svc-card rv">
-      <div class="svc-n">01</div>
-      <span class="svc-icon">✦</span>
-      <h3 class="svc-name">Diseño a medida</h3>
-      <p class="svc-desc">Cada web empieza de cero. Nunca una plantilla.</p>
+  <div class="why-grid">
+    <div class="why-item rv">
+      <div class="why-n">01</div>
+      <div>
+        <h3 class="why-h">A medida</h3>
+        <p class="why-p">Ni plantillas ni WordPress. <strong>Cada web se diseña y programa desde cero</strong> para tu negocio.</p>
+      </div>
     </div>
-    <div class="svc-card rv">
-      <div class="svc-n">02</div>
-      <span class="svc-icon">◎</span>
-      <h3 class="svc-name">SEO local</h3>
-      <p class="svc-desc">Que te encuentren en Google cuando busquen tu negocio.</p>
+    <div class="why-item rv">
+      <div class="why-n">02</div>
+      <div>
+        <h3 class="why-h">7 días</h3>
+        <p class="why-p"><strong>Del primer mensaje a tu web online en una semana.</strong> Plazos reales.</p>
+      </div>
     </div>
-    <div class="svc-card rv">
-      <div class="svc-n">03</div>
-      <span class="svc-icon">⚡</span>
-      <h3 class="svc-name">Entrega en 7 días</h3>
-      <p class="svc-desc">Del primer mensaje a tu web online en una semana.</p>
+    <div class="why-item rv">
+      <div class="why-n">03</div>
+      <div>
+        <h3 class="why-h">Trato directo</h3>
+        <p class="why-p">Hablas directamente con quien diseña y programa tu web. <strong>Sin intermediarios ni agencias.</strong> Si estás en la isla, voy a verte en persona.</p>
+      </div>
     </div>
-    <div class="svc-card rv">
-      <div class="svc-n">04</div>
-      <span class="svc-icon">◈</span>
-      <h3 class="svc-name">Pensada para el móvil</h3>
-      <p class="svc-desc">Diseñada primero para el móvil, donde te busca tu cliente.</p>
+    <div class="why-item rv">
+      <div class="why-n">04</div>
+      <div>
+        <h3 class="why-h">Sin permanencia</h3>
+        <p class="why-p">La web es tuya desde el primer día. <strong>Mantenimiento opcional: 40 €/mes, sin permanencia y cancelable cuando quieras.</strong></p>
+      </div>
     </div>
-  </div>
-  <div class="svc-foot">
-    <a href="https://wa.me/34695248495?text=Hola%2C%20quiero%20una%20web%20para%20mi%20negocio" target="_blank" rel="noopener" class="btn-p">Escríbeme por WhatsApp <span class="ar">→</span></a>
-    <small>Sin compromiso · Respuesta en 24 h</small>
   </div>
 </section>
-
 
 <!-- ── PRECIOS ── -->
 <section class="sec alt" id="precios">
   <div class="rv">
-    <div class="sec-label"><span class="ln">02</span><span class="bar"></span><span>Precios</span></div>
+    <div class="sec-label"><span class="ln">03</span><span class="bar"></span><span>Precios</span></div>
     <h2 class="sec-h">Webs desde<br><span class="ac">175 €</span></h2>
     <p class="sec-p">Tres paquetes, precio cerrado y sin letra pequeña.</p>
   </div>
@@ -545,113 +626,6 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
   </div>
 </section>
 
-<!-- ── PORTFOLIO ── -->
-<div class="port-wrap" id="portfolio">
-  <div class="port-inner">
-    <div class="rv">
-      <div class="sec-label"><span class="ln">03</span><span class="bar"></span><span>Proyectos</span></div>
-      <h2 class="sec-h">Mis<br><span class="dm">proyectos</span></h2>
-      <p class="sec-p">Dos webs de clientes reales de La Palma y cuatro proyectos de muestra.</p>
-    </div>
-    <h3 class="port-group">Clientes</h3>
-    <div class="port-grid clients">
-
-      <a href="https://www.zonavital.es/" target="_blank" rel="noopener" class="port-card real rv-s">
-        <div class="port-top-bar"></div>
-        <div class="port-body">
-          <div class="port-preview">
-            <img class="port-img" src="img/zonavital.jpg" width="1280" height="720" loading="lazy" alt="Web de Zonavital, ortopedia en Breña Alta, La Palma: catálogo de productos y pedido por WhatsApp">
-          </div>
-          <div class="port-name">Zonavital</div>
-          <div class="port-meta"><span class="port-sector">Ortopedia · <span class="port-badge client">Cliente</span></span><span class="port-link">Ver web ↗</span></div>
-        </div>
-      </a>
-
-      <a href="https://www.mirflores.com/" target="_blank" rel="noopener" class="port-card real rv-s">
-        <div class="port-top-bar"></div>
-        <div class="port-body">
-          <div class="port-preview">
-            <img class="port-img" src="img/mir.jpg" width="1280" height="720" loading="lazy" alt="Web de MirFlores Atelier, floristería en La Palma: ramos, bodas, eventos y talleres">
-          </div>
-          <div class="port-name">Mir Floristería</div>
-          <div class="port-meta"><span class="port-sector">Floristería · <span class="port-badge client">Cliente</span></span><span class="port-link">Ver web ↗</span></div>
-        </div>
-      </a>
-
-    </div>
-
-    <h3 class="port-group demo">Proyectos de muestra</h3>
-    <div class="port-grid demos">
-
-      <a href="https://restaurante-braseria.vercel.app" target="_blank" rel="noopener" class="port-card rv-s">
-        <div class="port-top-bar"></div>
-        <div class="port-body">
-          <div class="port-preview">
-            <img class="port-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=72" loading="lazy" alt="Carne a la brasa en asador">
-            <div class="port-overlay"></div>
-            <div class="port-prev-inner">
-              <div class="pv-brand">La Brasería</div>
-              <div class="pv-line"></div>
-              <div class="pv-sub">Asador · a la brasa</div>
-            </div>
-          </div>
-          <div class="port-name">La Brasería</div>
-          <div class="port-meta"><span class="port-sector">Restaurante</span><span class="port-badge">Demo</span><span class="port-link">Ver ↗</span></div>
-        </div>
-      </a>
-      <a href="https://cafeteria-alma-grano.vercel.app" target="_blank" rel="noopener" class="port-card rv-s">
-        <div class="port-top-bar"></div>
-        <div class="port-body">
-          <div class="port-preview">
-            <img class="port-img" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=72" loading="lazy" alt="Café de especialidad con latte art">
-            <div class="port-overlay"></div>
-            <div class="port-prev-inner">
-              <div class="pv-brand">Alma & Grano</div>
-              <div class="pv-line"></div>
-              <div class="pv-sub">Café de especialidad</div>
-            </div>
-          </div>
-          <div class="port-name">Alma & Grano</div>
-          <div class="port-meta"><span class="port-sector">Cafetería</span><span class="port-badge">Demo</span><span class="port-link">Ver ↗</span></div>
-        </div>
-      </a>
-      <a href="https://tattoo-tinta-y-alma.vercel.app" target="_blank" rel="noopener" class="port-card rv-s">
-        <div class="port-top-bar"></div>
-        <div class="port-body">
-          <div class="port-preview">
-            <img class="port-img" src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=600&q=72" loading="lazy" alt="Tatuaje artístico en espalda">
-            <div class="port-overlay"></div>
-            <div class="port-prev-inner">
-              <div class="pv-brand">Tinta & Alma</div>
-              <div class="pv-line"></div>
-              <div class="pv-sub">Tattoo Studio</div>
-            </div>
-          </div>
-          <div class="port-name">Tinta & Alma</div>
-          <div class="port-meta"><span class="port-sector">Tattoo</span><span class="port-badge">Demo</span><span class="port-link">Ver ↗</span></div>
-        </div>
-      </a>
-      <a href="https://laquemada.vercel.app" target="_blank" rel="noopener" class="port-card rv-s">
-        <div class="port-top-bar"></div>
-        <div class="port-body">
-          <div class="port-preview">
-            <img class="port-img" src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=72" loading="lazy" alt="Tarta de queso artesana">
-            <div class="port-overlay"></div>
-            <div class="port-prev-inner">
-              <div class="pv-brand">La Quemada</div>
-              <div class="pv-line"></div>
-              <div class="pv-sub">Tarta de queso artesana</div>
-            </div>
-          </div>
-          <div class="port-name">La Quemada</div>
-          <div class="port-meta"><span class="port-sector">Repostería</span><span class="port-badge">Demo</span><span class="port-link">Ver ↗</span></div>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</div>
-
 <!-- ── QUIÉN SOY ── -->
 <section class="sec alt" id="quien-soy">
   <div class="rv">
@@ -668,116 +642,24 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
       <p>Hago webs para negocios de la isla porque sé cómo se trabaja aquí.</p>
     </div>
   </div>
-</section>
-
-<!-- ── POR QUÉ NOCTA ── -->
-<section class="sec" id="por-que">
-  <div class="rv">
-    <div class="sec-label"><span class="ln">05</span><span class="bar"></span><span>Por qué Nocta</span></div>
-    <h2 class="sec-h">Sin<br><span class="ac">excusas</span></h2>
-    <p class="sec-p">Cuatro razones para trabajar conmigo.</p>
-  </div>
-  <div class="why-grid">
-    <div class="why-item rv">
-      <div class="why-n">01</div>
-      <div>
-        <h3 class="why-h">A medida</h3>
-        <p class="why-p">Ni plantillas ni WordPress. <strong>Cada web se diseña y programa desde cero</strong> para tu negocio.</p>
-      </div>
-    </div>
-    <div class="why-item rv">
-      <div class="why-n">02</div>
-      <div>
-        <h3 class="why-h">7 días</h3>
-        <p class="why-p"><strong>Del primer mensaje a tu web online en una semana.</strong> Plazos reales.</p>
-      </div>
-    </div>
-    <div class="why-item rv">
-      <div class="why-n">03</div>
-      <div>
-        <h3 class="why-h">Trato directo</h3>
-        <p class="why-p">Hablas directamente con quien diseña y programa tu web. <strong>Sin intermediarios ni agencias.</strong> Si estás en la isla, voy a verte en persona.</p>
-      </div>
-    </div>
-    <div class="why-item rv">
-      <div class="why-n">04</div>
-      <div>
-        <h3 class="why-h">Sin permanencia</h3>
-        <p class="why-p">La web es tuya desde el primer día. <strong>Mantenimiento opcional: 40 €/mes, sin permanencia y cancelable cuando quieras.</strong></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PROCESO ── -->
-<div class="proc-wrap" id="proceso">
-  <div class="proc-inner">
-    <div class="rv">
-      <div class="sec-label"><span class="ln">06</span><span class="bar"></span><span>El proceso</span></div>
-      <h2 class="sec-h">De la idea<br><span class="ac">al online</span></h2>
-    </div>
-    <div class="proc-steps">
-      <div class="proc-step rv">
-        <div class="proc-big">01</div>
-        <div class="proc-tag">Conversación</div>
-        <h3 class="proc-h">Escucho</h3>
-        <p class="proc-p">Me cuentas tu negocio y qué necesitas. Yo escucho.</p>
-      </div>
-      <div class="proc-step rv">
-        <div class="proc-big">02</div>
-        <div class="proc-tag">Diseño</div>
-        <h3 class="proc-h">Creo</h3>
-        <p class="proc-p">Diseño una web única para ti: tipografía, colores y estructura.</p>
-      </div>
-      <div class="proc-step rv">
-        <div class="proc-big">03</div>
-        <div class="proc-tag">Revisión</div>
-        <h3 class="proc-h">Ajusto</h3>
-        <p class="proc-p">La ves entera y la pulimos juntos. Hasta dos rondas de revisión incluidas.</p>
-      </div>
-      <div class="proc-step rv">
-        <div class="proc-big">04</div>
-        <div class="proc-tag">Lanzamiento</div>
-        <h3 class="proc-h">Online</h3>
-        <p class="proc-p">La publico y tus clientes te encuentran en Google.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ── TESTIMONIOS ── -->
-<section class="sec" id="testimonios">
-  <div class="rv">
-    <div class="sec-label"><span class="ln">07</span><span class="bar"></span><span>Clientes</span></div>
-    <h2 class="sec-h">Trabajo de <span class="ac">confianza</span></h2>
-  </div>
-  <!-- Texto en mi voz (no son citas de los clientes). Cuando tengas una frase real de cada uno, cámbiala aquí con su permiso. -->
-  <div class="tst-grid two">
-    <figure class="tst-card rv">
-      <blockquote>Llevo tiempo trabajando con Zonavital, en confianza y con trato cercano. Están contentos con el resultado y seguimos mejorando la web juntos.</blockquote>
-      <figcaption><strong>Zonavital</strong>Ortopedia · Breña Alta, La Palma</figcaption>
-    </figure>
-    <figure class="tst-card rv">
-      <blockquote>Con Mir Floristería también trabajo desde hace tiempo, mano a mano y sin intermediarios. Están felices con la web que hemos hecho juntos.</blockquote>
-      <figcaption><strong>Mir Floristería</strong>Floristería · La Palma</figcaption>
-    </figure>
-  </div>
+  <ol class="proc-line rv" id="proceso">
+    <li><b>1. Me escribes</b>Me cuentas tu negocio.</li>
+    <li><b>2. Boceto gratis</b>Ves tu web antes de pagar.</li>
+    <li><b>3. Ajustamos</b>Hasta dos rondas de revisión.</li>
+    <li><b>4. Online</b>Publicada y lista en Google.</li>
+  </ol>
 </section>
 
 <!-- ── FAQ ── -->
 <section class="sec alt">
   <div class="rv">
-    <div class="sec-label"><span class="ln">08</span><span class="bar"></span><span>Preguntas frecuentes</span></div>
+    <div class="sec-label"><span class="ln">05</span><span class="bar"></span><span>Dudas</span></div>
     <h2 class="sec-h">Lo que<br><span class="ac">preguntan</span></h2>
   </div>
   <div class="faq-list">
     <div class="faq-item rv">
-      <h3><button class="faq-q" aria-expanded="false">¿Cuánto tarda en estar lista mi web?<span class="faq-tog"></span></button></h3>
-      <div class="faq-a"><p>Depende del paquete. Web Básica (175 €): 5 días. Web Profesional (230 €): 7 días. Web Avanzada (350 €): 10 días. Los plazos empiezan desde que me envías el material (fotos, textos, logo). Todo en días laborables.</p></div>
-    </div>
-    <div class="faq-item rv">
-      <h3><button class="faq-q" aria-expanded="false">¿Y si no tengo fotos ni textos preparados?<span class="faq-tog"></span></button></h3>
-      <div class="faq-a"><p>No pasa nada. Te ayudo a prepararlos. Puedo hacer una sesión de fotos rápida con móvil profesional por 50€ extra, y los textos los escribo yo basándome en lo que me cuentes sobre tu negocio.</p></div>
+      <h3><button class="faq-q" aria-expanded="false">¿Puedo ver cómo quedaría mi web antes de contratar?<span class="faq-tog"></span></button></h3>
+      <div class="faq-a"><p>Claro. Si me dices a qué se dedica tu negocio, te hago un boceto rápido — totalmente gratis y sin compromiso. Así ves la calidad con algo concreto delante antes de decidir nada.</p></div>
     </div>
     <div class="faq-item rv">
       <h3><button class="faq-q" aria-expanded="false">¿Cómo se paga?<span class="faq-tog"></span></button></h3>
@@ -786,14 +668,6 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
     <div class="faq-item rv">
       <h3><button class="faq-q" aria-expanded="false">¿Qué pasa después de entregar la web?<span class="faq-tog"></span></button></h3>
       <div class="faq-a"><p>La web es tuya. El código, el diseño, el dominio — todo. Si quieres que me encargue de los cambios y actualizaciones, ofrezco mantenimiento opcional por 40 €/mes, sin permanencia y cancelable cuando quieras. Si prefieres llevarla tú, adelante.</p></div>
-    </div>
-    <div class="faq-item rv">
-      <h3><button class="faq-q" aria-expanded="false">¿Puedo ver cómo quedaría mi web antes de contratar?<span class="faq-tog"></span></button></h3>
-      <div class="faq-a"><p>Claro. Si me dices a qué se dedica tu negocio, te hago un boceto rápido — totalmente gratis y sin compromiso. Así ves la calidad con algo concreto delante antes de decidir nada.</p></div>
-    </div>
-    <div class="faq-item rv">
-      <h3><button class="faq-q" aria-expanded="false">¿Solo trabajas en La Palma?<span class="faq-tog"></span></button></h3>
-      <div class="faq-a"><p>Trabajo con negocios de toda la isla y me desplazo en persona a Los Llanos, Santa Cruz y alrededores. También trabajo en remoto con clientes de fuera, pero ir en persona es lo que me diferencia.</p></div>
     </div>
   </div>
 </section>
@@ -804,8 +678,8 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
     <h2 class="cta-h">¿Me escribes<br><span class="ac">hoy?</span></h2>
     <p class="cta-p">Cuéntame qué necesitas. Sin compromiso y sin presión.</p>
     <div class="cta-btns">
-      <a href="https://wa.me/34695248495?text=Hola%2C%20quiero%20una%20web%20para%20mi%20negocio" target="_blank" rel="noopener" class="btn-p">WhatsApp ahora <span class="ar">→</span></a>
-      <a href="/cuestionario.html" class="btn-g">Rellenar cuestionario</a>
+      <a href="https://wa.me/34695248495?text=Hola%2C%20quiero%20una%20web%20para%20mi%20negocio" target="_blank" rel="noopener" class="btn-p">Pídeme tu boceto gratis <span class="ar">→</span></a>
+      <a href="/cuestionario.html" class="btn-g">Prefiero rellenar un cuestionario</a>
     </div>
   </div>
 </section>
@@ -820,10 +694,8 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
     <div class="foot-col">
       <h4>Navegación</h4>
       <ul>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#portfolio">Proyectos</a></li>
         <li><a href="#precios">Precios</a></li>
-        <li><a href="#proceso">Proceso</a></li>
         <li><a href="/cuestionario.html">Presupuesto</a></li>
       </ul>
     </div>
