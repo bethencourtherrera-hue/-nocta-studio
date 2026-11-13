@@ -3,74 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nocta Studio · Cuestionario</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#F7F3E8">
+<title>Cuestionario para tu web | Nocta Studio</title>
+<meta name="description" content="Cuéntame sobre tu negocio en 5 minutos y te preparo una propuesta de web a medida. Respondo en menos de 24 horas, sin compromiso.">
+<link rel="canonical" href="https://nocta-studio.vercel.app/cuestionario.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Nocta Studio">
+<meta property="og:url" content="https://nocta-studio.vercel.app/cuestionario.html">
+<meta property="og:title" content="Cuestionario para tu web | Nocta Studio">
+<meta property="og:description" content="Cuéntame sobre tu negocio y te preparo una propuesta de web a medida, sin compromiso.">
+<meta property="og:image" content="https://nocta-studio.vercel.app/img/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cuestionario para tu web | Nocta Studio">
+<meta name="twitter:description" content="Cuéntame sobre tu negocio y te preparo una propuesta de web a medida, sin compromiso.">
+<meta name="twitter:image" content="https://nocta-studio.vercel.app/img/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='16' cy='16' r='14' stroke='%2338421F' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23C9A227'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#080808;--card:#0e0e0e;--gold:#C9A84C;--coral:#FF4D2E;--line:#1a1a1a;--dim:#555;--white:#f5f2e8}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);min-height:100vh}
+:root{
+  --crema:#F7F3E8;--crema-alt:#ECE5D3;
+  --oliva:#38421F;--oliva-medio:#6B7A4A;
+  --ocre:#C9A227;--ocre-oscuro:#96701A;--ocre-texto:#7F5C12;
+  --texto:#38421F;--texto-suave:#5E6B3F;--sobre-ocre:#2E3516;
+  --line:rgba(56,66,31,.16);--line2:rgba(56,66,31,.32);
+  --sombra:0 14px 34px rgba(56,66,31,.14);
+  --f-display:'Instrument Serif',Georgia,serif;
+  --f-body:'DM Sans',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--crema)}
+body{font-family:var(--f-body);background:var(--crema);color:var(--texto);min-height:100vh;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
 
-header{text-align:center;padding:44px 24px 36px;border-bottom:1px solid var(--gold);background:linear-gradient(160deg,#0a0a0a,#0d0d12)}
-header h1{font-family:'Bebas Neue';font-size:2rem;letter-spacing:3px}
-header h1 span{color:var(--gold)}
-header p{color:var(--dim);font-size:.82rem;margin-top:8px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.6}
+header{text-align:center;padding:44px 24px 36px;background:var(--oliva);border-bottom:3px solid var(--ocre)}
+header h1{font-family:var(--f-display);font-weight:400;font-size:2.4rem;letter-spacing:3px;color:var(--crema);line-height:1.1}
+header h1 span{color:var(--ocre)}
+header p{color:var(--crema-alt);font-size:.95rem;margin:10px auto 0;max-width:520px;line-height:1.65}
 
 .container{max-width:680px;margin:0 auto;padding:28px 20px 60px}
 
 /* PROGRESS */
 .progress-wrap{margin-bottom:28px}
-.progress-track{height:3px;background:var(--line);border-radius:100px;overflow:hidden}
-.progress-fill{height:100%;background:var(--gold);border-radius:100px;transition:width .4s ease;width:0%}
-.progress-txt{display:flex;justify-content:space-between;font-size:.65rem;color:var(--dim);margin-top:6px;letter-spacing:1px}
+.progress-track{height:4px;background:var(--line);border-radius:100px;overflow:hidden}
+.progress-fill{height:100%;background:var(--ocre);border-radius:100px;transition:width .4s ease;width:0%}
+.progress-txt{display:flex;justify-content:space-between;font-size:.72rem;font-weight:600;color:var(--texto-suave);margin-top:8px;letter-spacing:1px}
 
 /* SECCIONES */
-.section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:16px;transition:border-color .2s}
-.section:focus-within{border-color:rgba(201,168,76,.3)}
-.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--line)}
-.section-num{width:30px;height:30px;background:var(--gold);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.8rem;flex-shrink:0}
-.section-head h2{font-size:.95rem;font-weight:800;color:var(--white)}
-.section-head p{font-size:.7rem;color:var(--dim);margin-top:2px}
+.section{background:var(--crema-alt);border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:16px;transition:border-color .2s}
+.section:focus-within{border-color:var(--ocre-oscuro)}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--line2)}
+.section-num{width:32px;height:32px;background:var(--ocre);color:var(--sobre-ocre);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0}
+.section-head h2{font-family:var(--f-display);font-weight:400;font-size:1.6rem;line-height:1.1;color:var(--oliva)}
+.section-head p{font-size:.82rem;color:var(--texto-suave);margin-top:2px}
 
 /* CAMPOS */
 .field{margin-bottom:16px}
-.field label{display:block;font-size:.75rem;font-weight:700;color:var(--white);margin-bottom:6px}
-.field label .req{color:var(--coral);margin-left:2px}
+.field label{display:block;font-size:.85rem;font-weight:600;color:var(--oliva);margin-bottom:6px}
+.field label .req{color:var(--ocre-texto);margin-left:2px}
 .field input,.field textarea,.field select{
-  width:100%;background:#111;border:1px solid var(--line);border-radius:10px;
-  padding:12px 14px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:.82rem;
+  width:100%;background:var(--crema);border:1px solid var(--line2);border-radius:10px;
+  padding:12px 14px;color:var(--texto);font-family:var(--f-body);font-size:.95rem;
   transition:border-color .2s;resize:vertical;min-height:44px
 }
-.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--gold)}
-.field input::placeholder,.field textarea::placeholder{color:var(--dim)}
-.field textarea{min-height:80px}
-.field select option{background:#111}
+.field input:focus,.field textarea:focus,.field select:focus{outline:2px solid var(--ocre-oscuro);outline-offset:1px;border-color:var(--ocre-oscuro)}
+.field input::placeholder,.field textarea::placeholder{color:var(--texto-suave);opacity:1}
+.field textarea{min-height:84px}
 
 /* RADIO / CHECK */
 .options{display:flex;flex-direction:column;gap:8px;margin-top:4px}
-.opt{display:flex;align-items:center;gap:10px;background:#111;border:1px solid var(--line);border-radius:8px;padding:10px 14px;cursor:pointer;transition:all .2s}
-.opt:hover{border-color:rgba(201,168,76,.3)}
-.opt input[type=radio],.opt input[type=checkbox]{width:16px;height:16px;accent-color:var(--gold);flex-shrink:0}
-.opt span{font-size:.8rem;color:rgba(255,255,255,.7)}
+.field .opt{display:flex;align-items:center;gap:10px;background:var(--crema);border:1px solid var(--line2);border-radius:10px;padding:11px 14px;cursor:pointer;transition:all .2s;min-height:44px;margin-bottom:0}
+.opt:hover{border-color:var(--ocre-oscuro)}
+.opt input[type=radio],.opt input[type=checkbox]{width:18px;height:18px;min-height:0;accent-color:var(--oliva);flex-shrink:0}
+.opt span{font-size:.92rem;font-weight:400;color:var(--texto)}
+
+/* ANTISPAM */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 
 /* SUBMIT */
 .submit-wrap{text-align:center;margin-top:24px}
-.submit-btn{background:var(--gold);color:#000;border:none;padding:16px 40px;border-radius:100px;font-size:.88rem;font-weight:800;cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:all .2s;font-family:'DM Sans',sans-serif}
-.submit-btn:hover{background:#f0d080;transform:translateY(-2px)}
-.submit-note{color:var(--dim);font-size:.7rem;margin-top:10px}
+.submit-btn{background:var(--ocre);color:var(--sobre-ocre);border:2px solid var(--ocre);padding:16px 40px;border-radius:100px;font-size:.95rem;font-weight:700;cursor:pointer;letter-spacing:.3px;transition:all .3s;font-family:var(--f-body);min-height:48px}
+.submit-btn:hover{background:var(--oliva);border-color:var(--oliva);color:var(--crema);transform:translateY(-2px)}
+.submit-btn:focus-visible{outline:2px solid var(--oliva);outline-offset:3px}
+.submit-note{color:var(--texto-suave);font-size:.82rem;margin-top:12px}
 
 /* SUCCESS */
-#success{display:none;text-align:center;padding:60px 24px;background:var(--card);border:1px solid rgba(201,168,76,.3);border-radius:14px}
-#success h2{font-family:'Bebas Neue';font-size:2rem;color:var(--gold);letter-spacing:2px;margin-bottom:12px}
-#success p{color:var(--dim);font-size:.82rem;line-height:1.7}
+#success{display:none;text-align:center;padding:60px 24px;background:var(--crema-alt);border:1px solid var(--line2);border-radius:18px}
+#success h2{font-family:var(--f-display);font-weight:400;font-size:2.4rem;color:var(--oliva);margin-bottom:12px}
+#success p{color:var(--texto-suave);font-size:.98rem;line-height:1.7}
 
-footer{text-align:center;padding:24px;color:#333;font-size:.7rem;border-top:1px solid var(--line)}
+footer{text-align:center;padding:24px;color:var(--texto-suave);font-size:.82rem;border-top:1px solid var(--line2);display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center}
+footer a{color:var(--ocre-texto);text-decoration:underline;text-underline-offset:3px}
 </style>
 </head>
 <body>
 
 <header>
   <h1>NOCTA <span>STUDIO</span></h1>
-  <p>Cuestionario para nuevos clientes. Rellénalo con calma — toda la información que nos des nos ayuda a hacer la web perfecta para tu negocio.</p>
+  <p>Cuestionario para nuevos clientes. Rellénalo con calma: cuanta más información me des, mejor te haré la web.</p>
 </header>
 
 <div class="container">
@@ -84,17 +116,17 @@ footer{text-align:center;padding:24px;color:#333;font-size:.7rem;border-top:1px 
   <input type="hidden" name="_subject" value="🌙 Nuevo cuestionario cliente - Nocta Studio">
   <input type="hidden" name="_captcha" value="false">
   <input type="hidden" name="_template" value="box">
-  <input type="text" name="_honey" style="display:none">
+  <div class="hp" aria-hidden="true"><label>No rellenes este campo<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
 
   <!-- SECCIÓN 1 -->
   <div class="section">
     <div class="section-head">
       <div class="section-num">1</div>
-      <div><h2>Sobre tu negocio</h2><p>Queremos entender qué haces y qué te hace especial</p></div>
+      <div><h2>Sobre tu negocio</h2><p>Quiero entender qué haces y qué te hace especial</p></div>
     </div>
     <div class="field">
       <label>¿A qué se dedica tu negocio? <span class="req">*</span></label>
-      <textarea name="negocio_descripcion" placeholder="Cuéntanoslo con tus palabras..." required></textarea>
+      <textarea name="negocio_descripcion" placeholder="Cuéntamelo con tus palabras..." required></textarea>
     </div>
     <div class="field">
       <label>¿Qué os hace diferentes de la competencia?</label>
@@ -118,7 +150,7 @@ footer{text-align:center;padding:24px;color:#333;font-size:.7rem;border-top:1px 
   <div class="section">
     <div class="section-head">
       <div class="section-num">2</div>
-      <div><h2>Sobre tus clientes</h2><p>Conocer a tu cliente nos ayuda a diseñar la web para él</p></div>
+      <div><h2>Sobre tus clientes</h2><p>Conocer a tu cliente me ayuda a diseñar la web para él</p></div>
     </div>
     <div class="field">
       <label>¿Quién es vuestro cliente típico? <span class="req">*</span></label>
@@ -203,7 +235,7 @@ footer{text-align:center;padding:24px;color:#333;font-size:.7rem;border-top:1px 
     </div>
     <div class="field">
       <label>Servicios o productos con precios (si aplica)</label>
-      <textarea name="servicios" placeholder="Puedes ponernos una lista aquí o enviárnosla después por WhatsApp"></textarea>
+      <textarea name="servicios" placeholder="Puedes ponerme una lista aquí o enviármela después por WhatsApp"></textarea>
     </div>
     <div class="field">
       <label>Horarios</label>
@@ -230,7 +262,7 @@ footer{text-align:center;padding:24px;color:#333;font-size:.7rem;border-top:1px 
       <div><h2>Estilo y diseño</h2><p>Para que el resultado sea exactamente lo que esperas</p></div>
     </div>
     <div class="field">
-      <label>¿Hay alguna web que os guste? (pásanos el enlace)</label>
+      <label>¿Hay alguna web que os guste? (pásame el enlace)</label>
       <input type="text" name="web_referencia" placeholder="Ej: https://...">
     </div>
     <div class="field">
@@ -252,7 +284,7 @@ footer{text-align:center;padding:24px;color:#333;font-size:.7rem;border-top:1px 
   <div class="section">
     <div class="section-head">
       <div class="section-num">6</div>
-      <div><h2>Datos de contacto</h2><p>Para enviarte los avances y ponernos en marcha</p></div>
+      <div><h2>Datos de contacto</h2><p>Para enviarte los avances y ponerme en marcha</p></div>
     </div>
     <div class="field">
       <label>Tu nombre <span class="req">*</span></label>
@@ -279,28 +311,35 @@ footer{text-align:center;padding:24px;color:#333;font-size:.7rem;border-top:1px 
       </div>
     </div>
     <div class="field">
-      <label>¿Algo más que quieras contarnos?</label>
-      <textarea name="notas" placeholder="Cualquier cosa que no hayamos preguntado y que creas que es importante..."></textarea>
+      <label>¿Algo más que quieras contarme?</label>
+      <textarea name="notas" placeholder="Cualquier cosa que no haya preguntado y que creas que es importante..."></textarea>
     </div>
   </div>
 
   <div class="submit-wrap">
-    <button type="submit" class="submit-btn">Enviar cuestionario 🚀</button>
-    <p class="submit-note">Te contactamos en menos de 24h con una propuesta personalizada</p>
+    <button type="submit" class="submit-btn">Enviar cuestionario</button>
+    <p class="submit-note">Te respondo en menos de 24 h con una propuesta personalizada.</p>
   </div>
 
 </form>
 
 <div id="success">
   <h2>¡RECIBIDO!</h2>
-  <p>Muchas gracias. Hemos recibido toda la información y te contactamos en menos de 24 horas con una propuesta personalizada para tu negocio.<br><br>— Diego, Nocta Studio</p>
+  <p>Muchas gracias. He recibido toda la información y te respondo en menos de 24 horas con una propuesta personalizada para tu negocio.<br><br>— Diego, Nocta Studio</p>
 </div>
 
 </div>
 
-<footer>Nocta Studio · Diseño web para negocios locales · nocta-studio.vercel.app</footer>
+<footer><span>Nocta Studio · Diseño web en La Palma</span><a href="/">Volver al inicio</a><a href="/legal.html">Aviso legal</a></footer>
 
 <script>
+// Asociar cada etiqueta con su campo (accesibilidad)
+document.querySelectorAll('.field').forEach((f,i) => {
+  const l = f.querySelector(':scope > label');
+  const c = f.querySelector(':scope > input,:scope > textarea,:scope > select');
+  if (l && c) { c.id = c.id || 'campo-' + i; l.htmlFor = c.id; }
+});
+
 // Progress bar
 const sections = document.querySelectorAll('.section');
 const pfill = document.getElementById('pfill');

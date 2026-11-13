@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nocta-studio.vercel.app/sitemap.xml

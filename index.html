@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"Nocta Studio","description":"Estudio de diseño web para negocios locales de La Palma. Webs a medida, sin plantillas.","url":"https://nocta-studio.vercel.app","telephone":"+34695248495","email":"contactonocta.studio@gmail.com","image":"https://nocta-studio.vercel.app/img/og-image.jpg","address":{"@type":"PostalAddress","addressLocality":"La Palma","addressRegion":"Santa Cruz de Tenerife","addressCountry":"ES"},"areaServed":[{"@type":"AdministrativeArea","name":"La Palma"},{"@type":"AdministrativeArea","name":"Santa Cruz de Tenerife"},{"@type":"AdministrativeArea","name":"Canarias"}],"sameAs":["https://instagram.com/nocta._studio"]}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Nocta Studio","description":"Estudio de diseño web para negocios locales de La Palma. Webs a medida, sin plantillas.","url":"https://nocta-studio.vercel.app","telephone":"+34695248495","priceRange":"Desde 250 €","email":"contactonocta.studio@gmail.com","image":"https://nocta-studio.vercel.app/img/og-image.jpg","address":{"@type":"PostalAddress","addressLocality":"La Palma","addressRegion":"Santa Cruz de Tenerife","addressCountry":"ES"},"areaServed":[{"@type":"AdministrativeArea","name":"La Palma"},{"@type":"AdministrativeArea","name":"Santa Cruz de Tenerife"},{"@type":"AdministrativeArea","name":"Canarias"}],"sameAs":["https://instagram.com/nocta._studio"]}
 </script>
 <style>
 /* ── TOKENS ─────────────────────────────── */
@@ -48,6 +48,7 @@ html{scroll-behavior:smooth;background:var(--crema)}
 body{font-family:var(--f-body);background:var(--crema);color:var(--texto);overflow-x:hidden;line-height:1.5;-webkit-font-smoothing:antialiased;cursor:none}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;height:auto}
+[hidden]{display:none!important}
 @media(hover:none){body{cursor:auto}}
 
 /* ── CURSOR ─────────────────────────────── */
@@ -226,6 +227,7 @@ nav.scrolled{background:rgba(247,243,232,.94);backdrop-filter:blur(24px);-webkit
 .port-group{display:flex;align-items:center;gap:14px;margin-top:48px;font-size:.8rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--oliva)}
 .port-group::after{content:'';flex:1;height:1px;background:var(--line2)}
 .port-group.demo{color:var(--texto-suave);margin-top:72px}
+.port-note{font-size:.95rem;color:var(--texto-suave);margin-top:12px;max-width:520px}
 .port-group + .port-grid{margin-top:20px}
 .port-grid.clients{grid-template-columns:1fr}
 @media(min-width:640px){.port-grid.clients{grid-template-columns:1fr 1fr}}
@@ -237,7 +239,7 @@ nav.scrolled{background:rgba(247,243,232,.94);backdrop-filter:blur(24px);-webkit
 
 /* ── PRICING ─────────────────────────────── */
 .pr-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:48px}
-@media(min-width:900px){.pr-grid{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+.pr-grid.one{max-width:560px}
 .pr-card{background:var(--crema);border:1px solid var(--line);border-radius:18px;padding:30px 24px;display:flex;flex-direction:column;position:relative;transition:all .4s cubic-bezier(.16,1,.3,1)}
 .pr-card:hover{border-color:var(--line2);transform:translateY(-5px);box-shadow:var(--sombra)}
 .pr-card.hot{border:2px solid var(--ocre)}
@@ -331,7 +333,7 @@ nav.scrolled{background:rgba(247,243,232,.94);backdrop-filter:blur(24px);-webkit
 .faq-a p{font-size:.98rem;color:var(--texto-suave);line-height:1.7;padding-bottom:22px;padding-right:46px}
 
 /* ── CTA FINAL ───────────────────────────── */
-.cta-sec{text-align:center;padding:72px 24px 88px;position:relative;overflow:hidden;background:var(--crema)}
+.cta-sec{text-align:center;padding:72px 24px 88px;position:relative;overflow:hidden;background:var(--crema-alt)}
 @media(min-width:768px){.cta-sec{padding:128px 48px}}
 .cta-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(201,162,39,.12) 0%,transparent 65%);pointer-events:none}
 .cta-inner{max-width:840px;margin:0 auto;position:relative}
@@ -362,17 +364,6 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
 .wa:hover svg{fill:var(--crema)}
 .wa svg{width:28px;height:28px;fill:var(--sobre-ocre);transition:fill .3s}
 
-/* ── COOKIES ─────────────────────────────── */
-.ck-banner{position:fixed;bottom:24px;left:24px;right:24px;max-width:440px;background:var(--crema);border:1px solid var(--line2);border-radius:14px;padding:18px 20px;z-index:89;display:none;box-shadow:var(--sombra)}
-.ck-banner.show{display:block}
-@media(max-width:600px){.ck-banner{right:90px;left:16px;bottom:calc(20px + env(safe-area-inset-bottom,0px))}}
-.ck-text{font-size:.85rem;color:var(--texto-suave);line-height:1.6;margin-bottom:14px}
-.ck-text a{color:var(--ocre-texto);text-decoration:underline}
-.ck-btns{display:flex;gap:8px}
-.ck-ok{background:var(--ocre);color:var(--sobre-ocre);padding:10px 20px;border-radius:100px;font-size:.85rem;font-weight:700;border:none;cursor:pointer;transition:all .3s}
-.ck-ok:hover{background:var(--oliva);color:var(--crema)}
-.ck-no{background:transparent;color:var(--oliva);padding:10px 20px;border-radius:100px;font-size:.85rem;font-weight:600;border:1px solid var(--line2);cursor:pointer;transition:all .3s}
-.ck-no:hover{border-color:var(--oliva)}
 .proc-line{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;margin-top:40px;padding-top:28px;border-top:1px solid var(--line2)}
 .proc-line li{font-family:var(--f-body);font-size:.95rem;color:var(--texto-suave);line-height:1.4}
 .proc-line b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.5rem;color:var(--ocre-oscuro);font-style:italic}
@@ -449,7 +440,7 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
           Soy Diego, de La Palma, y voy en persona a tu negocio. Sin plantillas, lista en 7 días.
         </p>
         <div class="hero-ctas">
-          <a href="https://wa.me/34695248495?text=Hola%2C%20quiero%20ver%20un%20boceto%20gratis%20de%20mi%20web" target="_blank" rel="noopener" class="btn-p">Pídeme tu boceto gratis <span class="ar">→</span></a>
+          <a href="https://wa.me/34695248495?text=Hola%2C%20quiero%20una%20web%20para%20mi%20negocio" target="_blank" rel="noopener" class="btn-p">Pídeme tu boceto gratis <span class="ar">→</span></a>
         </div>
       </div>
       <div class="hero-stats">
@@ -461,6 +452,9 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
   </div>
 </section>
 
+<!-- ── FRANJA ── -->
+<div class="strip"><p><span>Web a medida</span> <span class="sep">·</span> <span>desde 250 €</span> <span class="sep">·</span> <span>lista en 7 días</span> <span class="sep">·</span> <span>sin permanencia</span></p></div>
+
 <!-- ── PORTFOLIO ── -->
 <div class="port-wrap" id="portfolio">
   <div class="port-inner">
@@ -469,6 +463,7 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
       <h2 class="sec-h">Webs que ya<br><span class="ac">trabajan</span></h2>
       <p class="sec-p">Negocios reales de La Palma que hoy reciben clientes por su web.</p>
     </div>
+    <h3 class="port-group">Clientes</h3>
     <div class="port-grid clients">
 
       <a href="https://www.zonavital.es/" target="_blank" rel="noopener" class="port-card real rv-s">
@@ -494,25 +489,30 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
       </a>
 
     </div>
-    <div class="tst-grid two port-tst">
-      <!-- Texto en mi voz (no son citas de los clientes). Cuando tengas una frase real de cada uno, cámbiala aquí con su permiso. -->
+    <!-- TESTIMONIOS: rellena las 3 citas con frases reales (y con permiso del cliente) y quita el atributo hidden de este div para publicarlos. -->
+    <div class="tst-grid port-tst" hidden>
       <figure class="tst-card rv">
-        <blockquote>Llevo tiempo trabajando con Zonavital, en confianza y con trato cercano. Están contentos con el resultado y seguimos mejorando la web juntos.</blockquote>
-        <figcaption><strong>Zonavital</strong>Ortopedia · Breña Alta, La Palma</figcaption>
+        <blockquote>[CITA 1: pega aquí la frase real del cliente]</blockquote>
+        <figcaption><strong>[NOMBRE 1]</strong>[NEGOCIO 1 · LUGAR]</figcaption>
       </figure>
       <figure class="tst-card rv">
-        <blockquote>Con Mir Floristería también trabajo desde hace tiempo, mano a mano y sin intermediarios. Están felices con la web que hemos hecho juntos.</blockquote>
-        <figcaption><strong>Mir Floristería</strong>Floristería · La Palma</figcaption>
+        <blockquote>[CITA 2: pega aquí la frase real del cliente]</blockquote>
+        <figcaption><strong>[NOMBRE 2]</strong>[NEGOCIO 2 · LUGAR]</figcaption>
+      </figure>
+      <figure class="tst-card rv">
+        <blockquote>[CITA 3: pega aquí la frase real del cliente]</blockquote>
+        <figcaption><strong>[NOMBRE 3]</strong>[NEGOCIO 3 · LUGAR]</figcaption>
       </figure>
     </div>
-    <h3 class="port-group demo">Más ejemplos</h3>
+    <h3 class="port-group demo">Proyectos de muestra</h3>
+    <p class="port-note">Negocios inventados para enseñarte mi estilo.</p>
     <div class="port-grid demos">
 
       <a href="https://restaurante-braseria.vercel.app" target="_blank" rel="noopener" class="port-card rv-s">
         <div class="port-top-bar"></div>
         <div class="port-body">
           <div class="port-preview">
-            <img class="port-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=72" loading="lazy" alt="Carne a la brasa en asador">
+            <img class="port-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=72" width="600" height="400" loading="lazy" alt="Carne a la brasa en asador">
             <div class="port-overlay"></div>
             <div class="port-prev-inner">
               <div class="pv-brand">La Brasería</div>
@@ -528,7 +528,7 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
         <div class="port-top-bar"></div>
         <div class="port-body">
           <div class="port-preview">
-            <img class="port-img" src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=600&q=72" loading="lazy" alt="Tatuaje artístico en espalda">
+            <img class="port-img" src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=600&q=72" width="600" height="400" loading="lazy" alt="Tatuaje artístico en espalda">
             <div class="port-overlay"></div>
             <div class="port-prev-inner">
               <div class="pv-brand">Tinta & Alma</div>
@@ -546,11 +546,10 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
 </div>
 
 <!-- ── POR QUÉ NOCTA ── -->
-<section class="sec" id="por-que">
+<section class="sec alt" id="por-que">
   <div class="rv">
     <div class="sec-label"><span class="ln">02</span><span class="bar"></span><span>Por qué Nocta</span></div>
     <h2 class="sec-h">Por qué<br><span class="ac">Nocta</span></h2>
-    <p class="sec-p">Lo que tienes al trabajar conmigo.</p>
   </div>
   <div class="why-grid">
     <div class="why-item rv">
@@ -564,7 +563,7 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
       <div class="why-n">02</div>
       <div>
         <h3 class="why-h">7 días</h3>
-        <p class="why-p"><strong>Del primer mensaje a tu web online en una semana.</strong> Plazos reales.</p>
+        <p class="why-p"><strong>Del primer mensaje a tu web online en una semana.</strong></p>
       </div>
     </div>
     <div class="why-item rv">
@@ -585,47 +584,28 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
 </section>
 
 <!-- ── PRECIOS ── -->
-<section class="sec alt" id="precios">
+<section class="sec" id="precios">
   <div class="rv">
-    <div class="sec-label"><span class="ln">03</span><span class="bar"></span><span>Precios</span></div>
-    <h2 class="sec-h">Webs desde<br><span class="ac">175 €</span></h2>
-    <p class="sec-p">Tres paquetes, precio cerrado y sin letra pequeña.</p>
+    <div class="sec-label"><span class="ln">03</span><span class="bar"></span><span>Precio</span></div>
+    <h2 class="sec-h">Webs desde<br><span class="ac">250 €</span></h2>
+    <p class="sec-p">Te cierro el precio antes de empezar, sin letra pequeña.</p>
   </div>
-  <div class="pr-grid">
-    <div class="pr-card rv">
-      
-      <div class="pr-name">Básica</div>
-      <div class="pr-price">175<small>€</small></div>
-      <div class="pr-days">Entrega en 5 días laborables</div>
-      <ul class="pr-list"><li>Web de una página, diseñada a medida</li><li>Adaptada al móvil, rápida y sin plantillas</li><li>Botón de WhatsApp, horario y mapa</li><li>SEO local básico</li><li>Publicación online</li></ul>
-      <p class="pr-pay">Pago: 50&nbsp;% al empezar y 50&nbsp;% a la entrega.</p>
-      <a href="https://wa.me/34695248495?text=Hola%2C%20me%20interesa%20la%20web%20B%C3%A1sica%20%28175%20%E2%82%AC%29" target="_blank" rel="noopener" class="btn-g">Quiero la Básica</a>
-    </div>
+  <div class="pr-grid one">
     <div class="pr-card rv hot">
-      <span class="pr-tag">La más pedida</span>
-      <div class="pr-name">Profesional</div>
-      <div class="pr-price">230<small>€</small></div>
-      <div class="pr-days">Entrega en 7 días laborables</div>
-      <ul class="pr-list"><li>Todo lo de la Básica</li><li>Web de varias páginas</li><li>Textos redactados por mí</li><li>SEO local completo</li><li>Hasta dos rondas de revisión</li></ul>
+      <div class="pr-name">Web a medida · desde</div>
+      <div class="pr-price">250<small>€</small></div>
+      <div class="pr-days">Lista en 7 días</div>
+      <ul class="pr-list"><li>Diseño a medida, sin plantillas</li><li>Adaptada al móvil y rápida</li><li>Botón de WhatsApp, horario y mapa</li><li>SEO local para que te encuentren en Google</li><li>Hasta dos rondas de revisión</li><li>Publicación online</li></ul>
       <p class="pr-pay">Pago: 50&nbsp;% al empezar y 50&nbsp;% a la entrega.</p>
-      <a href="https://wa.me/34695248495?text=Hola%2C%20me%20interesa%20la%20web%20Profesional%20%28230%20%E2%82%AC%29" target="_blank" rel="noopener" class="btn-p">Quiero la Profesional</a>
-    </div>
-    <div class="pr-card rv">
-      
-      <div class="pr-name">Avanzada</div>
-      <div class="pr-price">350<small>€</small></div>
-      <div class="pr-days">Entrega en 10 días laborables</div>
-      <ul class="pr-list"><li>Todo lo de la Profesional</li><li>Animaciones y detalles de diseño a medida</li><li>Catálogo o carta con pedido por WhatsApp</li><li>Funciones extra según tu negocio</li></ul>
-      <p class="pr-pay">Pago: 50&nbsp;% al empezar y 50&nbsp;% a la entrega.</p>
-      <a href="https://wa.me/34695248495?text=Hola%2C%20me%20interesa%20la%20web%20Avanzada%20%28350%20%E2%82%AC%29" target="_blank" rel="noopener" class="btn-g">Quiero la Avanzada</a>
+      <a href="https://wa.me/34695248495?text=Hola%2C%20quiero%20una%20web%20para%20mi%20negocio" target="_blank" rel="noopener" class="btn-p">Quiero mi web <span class="ar">→</span></a>
     </div>
   </div>
   <div class="pr-notes rv">
     <p><strong>Boceto gratis y sin compromiso.</strong> Cuéntame a qué te dedicas y te enseño cómo quedaría tu web antes de que pagues nada.</p>
+    <p>El precio final depende de las páginas y funciones que necesites. Te lo confirmo antes de empezar.</p>
     <p><strong>Mantenimiento opcional:</strong> 40&nbsp;€/mes, sin permanencia, cancelable cuando quieras.</p>
   </div>
 </section>
-
 <!-- ── QUIÉN SOY ── -->
 <section class="sec alt" id="quien-soy">
   <div class="rv">
@@ -651,7 +631,7 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
 </section>
 
 <!-- ── FAQ ── -->
-<section class="sec alt">
+<section class="sec" id="faq">
   <div class="rv">
     <div class="sec-label"><span class="ln">05</span><span class="bar"></span><span>Dudas</span></div>
     <h2 class="sec-h">Lo que<br><span class="ac">preguntan</span></h2>
@@ -660,6 +640,10 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
     <div class="faq-item rv">
       <h3><button class="faq-q" aria-expanded="false">¿Puedo ver cómo quedaría mi web antes de contratar?<span class="faq-tog"></span></button></h3>
       <div class="faq-a"><p>Claro. Si me dices a qué se dedica tu negocio, te hago un boceto rápido — totalmente gratis y sin compromiso. Así ves la calidad con algo concreto delante antes de decidir nada.</p></div>
+    </div>
+    <div class="faq-item rv">
+      <h3><button class="faq-q" aria-expanded="false">¿Solo trabajas en La Palma?<span class="faq-tog"></span></button></h3>
+      <div class="faq-a"><p>Trabajo con negocios de toda la isla y me desplazo en persona a Los Llanos, Santa Cruz y alrededores. También puedo hacerlo en remoto, pero ir en persona es lo que me diferencia.</p></div>
     </div>
     <div class="faq-item rv">
       <h3><button class="faq-q" aria-expanded="false">¿Cómo se paga?<span class="faq-tog"></span></button></h3>
@@ -718,15 +702,6 @@ footer{background:var(--oliva);color:var(--crema);padding:56px 24px 120px;z-inde
 <a href="https://wa.me/34695248495?text=Hola%2C%20quiero%20una%20web%20para%20mi%20negocio" target="_blank" rel="noopener" class="wa" aria-label="Escríbeme por WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
-
-<!-- ── COOKIES ── -->
-<div class="ck-banner" id="ck">
-  <p class="ck-text">Uso cookies propias para analizar el tráfico y mejorar tu experiencia. <a href="/legal.html">Política de cookies</a></p>
-  <div class="ck-btns">
-    <button class="ck-ok" id="ckOk">Aceptar</button>
-    <button class="ck-no" id="ckNo">Rechazar</button>
-  </div>
-</div>
 
 <script>
 // ── CURSOR ──
@@ -793,12 +768,6 @@ const obs = new IntersectionObserver((entries) => {
   });
 }, {threshold:.08, rootMargin:'0px 0px -50px 0px'});
 document.querySelectorAll('.rv,.rv-s,.proc-step').forEach(el => obs.observe(el));
-
-// ── COOKIES ──
-const ck = document.getElementById('ck');
-if (!localStorage.getItem('nocta-ck')) setTimeout(() => ck.classList.add('show'), 1800);
-document.getElementById('ckOk').addEventListener('click', () => { localStorage.setItem('nocta-ck','ok'); ck.classList.remove('show'); });
-document.getElementById('ckNo').addEventListener('click', () => { localStorage.setItem('nocta-ck','no'); ck.classList.remove('show'); });
 </script>
 </body>
 </html>
